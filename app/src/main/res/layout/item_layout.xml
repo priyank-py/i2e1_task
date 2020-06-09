@@ -21,8 +21,9 @@
             android:id="@+id/iv_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/placeholder_image"
             android:adjustViewBounds="true"
-            android:scaleType="fitXY" />
+            android:scaleType="centerCrop" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
