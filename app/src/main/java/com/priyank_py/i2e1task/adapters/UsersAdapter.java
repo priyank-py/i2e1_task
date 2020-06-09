@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.priyank_py.i2e1task.R;
 import com.priyank_py.i2e1task.entities.DataResponse;
+import com.priyank_py.i2e1task.entities.User;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -66,6 +67,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
             itemAdapter.notifyDataSetChanged();
         } else {
             holder.userItems.setVisibility(View.GONE);
+        }
+    }
+
+    public void addUsers(List<DataResponse.DataBean.UsersBean> newUsers) {
+        for (DataResponse.DataBean.UsersBean user : newUsers) {
+            this.users.add(user);
+            notifyDataSetChanged();
         }
     }
 

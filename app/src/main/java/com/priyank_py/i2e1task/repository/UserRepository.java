@@ -22,9 +22,9 @@ public class UserRepository {
         userApi = NetworkUtils.createService(UserApi.class);
     }
 
-    public MutableLiveData<DataResponse> getAllUsers() {
+    public MutableLiveData<DataResponse> getAllUsers(int offset, int page) {
         final MutableLiveData<DataResponse> allUsers = new MutableLiveData<>();
-        userApi.getAllUsers(10, 10).enqueue(new Callback<DataResponse>() {
+        userApi.getAllUsers(offset, page).enqueue(new Callback<DataResponse>() {
             @Override
             public void onResponse(@NonNull Call<DataResponse> call, @NonNull Response<DataResponse> response) {
                 if (response.isSuccessful()) {
