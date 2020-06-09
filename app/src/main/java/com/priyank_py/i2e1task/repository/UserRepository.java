@@ -22,46 +22,6 @@ public class UserRepository {
         userApi = NetworkUtils.createService(UserApi.class);
     }
 
-//    public static UserRepository getInstance() {
-//        if (mUserRepository == null) {
-//            mUserRepository = new UserRepository();
-//        }
-//        return mUserRepository;
-//    }
-
-//    private static void subscribeToUsers() {
-//        userApi.getAllUsers(10, 10)
-//                .subscribeOn(Schedulers.io())
-//                .doOnError(Throwable::printStackTrace)
-//                .subscribe(new Observer<DataResponse>() {
-//
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onNext(DataResponse userResponse) {
-//                        allUsers.postValue(userResponse);
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        e.printStackTrace();
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//
-//                    }
-//                });
-//    }
-//
-//    public LiveData<DataResponse> getUserList() {
-//        subscribeToUsers();
-//        return allUsers;
-//    }
-
     public MutableLiveData<DataResponse> getAllUsers() {
         final MutableLiveData<DataResponse> allUsers = new MutableLiveData<>();
         userApi.getAllUsers(10, 10).enqueue(new Callback<DataResponse>() {
@@ -73,7 +33,7 @@ public class UserRepository {
             }
 
             @Override
-            public void onFailure(Call<DataResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<DataResponse> call, @NonNull Throwable t) {
                 allUsers.setValue(null);
             }
         });

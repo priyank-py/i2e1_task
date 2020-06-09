@@ -6,6 +6,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="titleTextColor">@color/colorEggBlue</item>
+        <item name="android:statusBarColor">@color/colorEggBlue</item>
     </style>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.priyank_py.i2e1task.api;
+package com.priyank_py.i2e1task.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;

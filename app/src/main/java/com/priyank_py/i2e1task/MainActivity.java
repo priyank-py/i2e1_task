@@ -24,7 +24,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView usersRecyclerView;
-    private UserViewModel userViewModel;
     private ProgressBar progressBar;
     private List<DataResponse.DataBean.UsersBean> users;
 
@@ -39,12 +38,11 @@ public class MainActivity extends AppCompatActivity {
         usersRecyclerView.setLayoutManager(linearLayoutManager);
         usersRecyclerView.setHasFixedSize(false);
 
-        userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
+        UserViewModel userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
         userViewModel.getAllUsers().observe(this, it -> {
             users = it.getData().getUsers();
             UsersAdapter usersAdapter = new UsersAdapter();
             usersAdapter.setUsers(users, getApplicationContext());
-            Log.d("MainActivity", "users"+ users.toString());
             usersRecyclerView.setAdapter(usersAdapter);
             progressBar.setVisibility(View.GONE);
         });

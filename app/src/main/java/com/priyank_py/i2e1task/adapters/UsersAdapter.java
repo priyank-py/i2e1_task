@@ -4,21 +4,16 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.priyank_py.i2e1task.MainActivity;
 import com.priyank_py.i2e1task.R;
-import com.priyank_py.i2e1task.api.ItemAdapter;
 import com.priyank_py.i2e1task.entities.DataResponse;
-import com.priyank_py.i2e1task.entities.User;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -53,7 +48,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
 
         List<String> images = currentUser.getItems();
 
-        if (images.size()%2 == 1) {
+        if (images.size() % 2 == 1) {
             holder.cardView.setVisibility(View.VISIBLE);
             Picasso.get().load(images.get(0)).into(holder.oddImage);
             images.remove(0);
